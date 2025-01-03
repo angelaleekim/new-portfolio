@@ -1,56 +1,152 @@
-import { IconCookie, IconGauge, IconUser } from '@tabler/icons-react';
-import { Badge, Button, Card, Container, Group, SimpleGrid, Text, Title } from '@mantine/core';
+import React from 'react';
+import {
+  FaCss3Alt,
+  FaGithub,
+  FaHtml5,
+  FaJava,
+  FaJira,
+  FaNodeJs,
+  FaPython,
+  FaReact,
+} from 'react-icons/fa';
+import {
+  SiC,
+  SiCplusplus,
+  SiGit,
+  SiJavascript,
+  SiMantine,
+  SiMongodb,
+  SiMysql,
+  SiSpringboot,
+  SiTailwindcss,
+  SiTypescript,
+} from 'react-icons/si';
+import { Button, Container, Grid, GridCol, Group, Paper, Title } from '@mantine/core';
 import classes from './TechStack.module.css';
 
-const mockdata = [
-  {
-    title: 'The Walt Disney Company',
-    description:
-      'This dust is actually a powerful poison that will even make a pro wrestler sick, Regice cloaks itself with frigid air of -328 degrees Fahrenheit',
-    icon: IconGauge,
-  },
-  {
-    title: 'ClassPass',
-    description:
-      'People say it can run at the same speed as lightning striking, Its icy body is so cold, it will not melt even if it is immersed in magma',
-    icon: IconUser,
-  },
-  {
-    title: 'SLO Botanical Garden',
-    description:
-      'They’re popular, but they’re rare. Trainers who show them off recklessly may be targeted by thieves',
-    icon: IconCookie,
-  },
-];
-
 export default function TechStack() {
-  //   const Projects = mockdata.map((project) => (
-  //     <Card key={project.title} shadow="md" radius="md" className={classes.card} padding="xl">
-  //       {/* <project.icon size={50} stroke={2} color={'pink.6'} /> */}
-  //       <Text fz="lg" fw={500} className={classes.cardTitle} mt="md">
-  //         {project.title}
-  //       </Text>
-  //       <Text fz="sm" c="dimmed" mt="sm">
-  //         {project.description}
-  //       </Text>
-  //     </Card>
-  //   ));
+  const frontendSkills = [
+    { name: 'React Js', icon: <FaReact size={20} color="#61DBFB" /> },
+    { name: 'HTML', icon: <FaHtml5 size={20} color="#E34F26" /> },
+    { name: 'CSS', icon: <FaCss3Alt size={20} color="#1572B6" /> },
+    { name: 'JavaScript', icon: <SiJavascript size={20} color="#F7DF1E" /> },
+    { name: 'Tailwind CSS', icon: <SiTailwindcss size={20} color="#38B2AC" /> },
+    { name: 'Typescript', icon: <SiTypescript size={20} color="#38B2AC" /> },
+    { name: 'Mantine', icon: <SiMantine size={20} color="#000000" /> },
+  ];
+
+  const backendSkills = [
+    { name: 'SpringBoot', icon: <SiSpringboot size={20} color="#3ECF8E" /> },
+    { name: 'Node Js', icon: <FaNodeJs size={20} color="#68A063" /> },
+    { name: 'MySQL', icon: <SiMysql size={20} color="#00758F" /> },
+    { name: 'MongoDB', icon: <SiMongodb size={20} color="#47A248" /> },
+    { name: 'Java', icon: <FaJava size={20} color="#3ECF8E" /> },
+    { name: 'Python', icon: <FaPython size={20} color="#3ECF8E" /> },
+    { name: 'C', icon: <SiC size={20} color="#3ECF8E" /> },
+    { name: 'C++', icon: <SiCplusplus size={20} color="#3ECF8E" /> },
+  ];
+
+  const otherSkills = [
+    { name: 'Git', icon: <SiGit size={20} color="#F05032" /> },
+    { name: 'GitHub', icon: <FaGithub size={20} color="#181717" /> },
+    { name: 'Jira', icon: <FaJira size={20} color="#007ACC" /> },
+    { name: 'VS Code', icon: <FaReact size={20} color="#007ACC" /> },
+  ];
+
+  type Skill = {
+    name: string;
+    icon: React.ReactNode; // Represents the JSX elements used as icons
+  };
+
+  const renderSkills = (skills: Skill[]): JSX.Element[] =>
+    skills.map((skill: Skill, index: number) => (
+      <Button
+        key={`${skill.name}-${index}`} // Ensures unique key
+        variant="outline"
+        radius="xl"
+        size="lg"
+        leftSection={<Group>{skill.icon}</Group>}
+        style={{
+          display: 'flex',
+          justifyContent: 'flex-start',
+          alignItems: 'center',
+          fontWeight: 500,
+          color: '#000',
+          backgroundColor: '#fff',
+          border: '1px solid #ccc',
+        }}
+      >
+        {skill.name}
+      </Button>
+    ));
 
   return (
-    <Container size="lg" py="xl">
-      <div className={classes.inner}>
-        <Title order={2} className={classes.title} ta="center" mt="sm">
-          Tech Stack
-        </Title>
-        {/* <Text c="dimmed" className={classes.description} ta="center" mt="md">
-          Every once in a while, you’ll see a Golbat that’s missing some fangs. This happens when
-          hunger drives it to try biting a Steel-type Pokémon.
-        </Text> */}
+    <Container size="xl" py="xl">
+      <Title order={2} className={classes.title} ta="center" mt="sm">
+        Tech Stack
+      </Title>
+      <Grid mt={'4rem'} gutter="xl">
+        {/* Frontend Section */}
+        <GridCol span={6}>
+          <Paper
+            className={classes.card}
+            shadow="md"
+            radius="xl"
+            p="xl"
+            withBorder
+            style={{ width: '90%', margin: '0 auto' }} // Adjusted width
+          >
+            <Title className={classes.cardTitle} ta={'center'} order={2} mb="lg">
+              Frontend
+            </Title>
+            <Group>{renderSkills(frontendSkills)}</Group>
+          </Paper>
+        </GridCol>
 
-        <SimpleGrid cols={{ base: 1, md: 3 }} spacing="xl" mt={50}>
-          {/* {Projects} */}
-        </SimpleGrid>
-      </div>
+        {/* Backend Section */}
+        <GridCol span={6}>
+          <Paper
+            className={classes.card}
+            shadow="md"
+            radius="xl"
+            p="xl"
+            withBorder
+            style={{ width: '90%', margin: '0 auto' }} // Adjusted width
+          >
+            <Title className={classes.cardTitle} ta={'center'} order={2} mb="lg">
+              Backend
+            </Title>
+            <Group>{renderSkills(backendSkills)}</Group>
+          </Paper>
+        </GridCol>
+
+        {/* Others Section */}
+        <GridCol
+          span={12}
+          style={{
+            display: 'flex',
+            justifyContent: 'center',
+            alignItems: 'center',
+          }}
+        >
+          <Paper
+            className={classes.card}
+            shadow="md"
+            radius="xl"
+            p="xl"
+            withBorder
+            style={{
+              width: '40%', // Smaller width for Others section
+              textAlign: 'center',
+            }}
+          >
+            <Title className={classes.cardTitle} ta={'center'} order={2} mb="lg">
+              Others
+            </Title>
+            <Group>{renderSkills(otherSkills)}</Group>
+          </Paper>
+        </GridCol>
+      </Grid>
     </Container>
   );
 }

@@ -1,5 +1,14 @@
 import NextImage from 'next/image';
-import { Container, Image, Paper, Text, Timeline, TimelineItem, Title } from '@mantine/core';
+import {
+  Center,
+  Container,
+  Image,
+  Paper,
+  Text,
+  Timeline,
+  TimelineItem,
+  Title,
+} from '@mantine/core';
 import projects from './ProjectsData';
 import classes from './ProjectCards.module.css';
 
@@ -37,6 +46,7 @@ export default function ProjectCards() {
           Work Experience & Projects
         </Title>
         <Timeline
+          ml={'50'}
           align={'left'}
           active={projects.length}
           color={'purple'}
@@ -45,6 +55,7 @@ export default function ProjectCards() {
           bulletSize={25}
         >
           {TimelineItems}
+          <TimelineItem></TimelineItem>
         </Timeline>
       </div>
     </Container>

@@ -1,3 +1,4 @@
+/* Existing styles */
 @import url('https://fonts.googleapis.com/css2?family=Outfit:wght@400;500;700;900&display=swap');
 
 .inner {
@@ -33,26 +34,18 @@
 }
 
 .card {
-  border: 1px solid light-dark(var(--mantine-color-gray-1), var(--mantine-color-dark-5));
+  border: 2px solid light-dark(var(--mantine-color-gray-1), var(--mantine-color-dark-5));
   transition:
     transform 0.4s ease,
     box-shadow 0.4s ease;
 }
 
 .card:hover {
-  transform: translateY(-7px);
+  transform: translateY(-15px);
   box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
 }
 
 .cardTitle {
   font-family: 'Outfit', sans-serif;
-  font-weight: 900;
-  /* &::after {
-    content: '';
-    display: block;
-    background-color: var(--mantine-color-blue-filled);
-    width: 45px;
-    height: 2px;
-    margin-top: var(--mantine-spacing-sm);
-  } */
+  font-weight: 500;
 }
