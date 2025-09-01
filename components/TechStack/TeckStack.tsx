@@ -71,9 +71,7 @@ export default function TechStack() {
           justifyContent: 'flex-start',
           alignItems: 'center',
           fontWeight: 500,
-          color: '#000',
-          backgroundColor: '#fff',
-          border: '1px solid #ccc',
+          border: '1px solid',
         }}
       >
         {skill.name}
@@ -82,71 +80,83 @@ export default function TechStack() {
 
   return (
     <Container size="xl" py="xl">
-      <Title order={2} className={classes.title} ta="center" mt="sm">
-        Tech Stack
-      </Title>
-      <Grid mt={'4rem'} gutter="xl">
-        {/* Frontend Section */}
-        <GridCol span={6}>
-          <Paper
-            className={classes.card}
-            shadow="md"
-            radius="xl"
-            p="xl"
-            withBorder
-            style={{ width: '90%', margin: '0 auto' }} // Adjusted width
-          >
-            <Title className={classes.cardTitle} ta={'center'} order={2} mb="lg">
-              Frontend
-            </Title>
-            <Group>{renderSkills(frontendSkills)}</Group>
-          </Paper>
-        </GridCol>
+      <div className={classes.inner}>
+        <Title order={2} className={classes.title} ta="center" mt="sm">
+          Tech Stack
+        </Title>
+        <Grid mt={'4rem'} gutter="xl">
+          {/* Frontend Section */}
+          <GridCol span={{ base: 12, sm: 6 }}>
+            <Paper
+              className={classes.card}
+              shadow="md"
+              radius="xl"
+              p="xl"
+              withBorder
+              style={{
+                width: '100%',
+                margin: '0 auto',
+                maxWidth: '500px',
+              }}
+            >
+              <Title className={classes.cardTitle} ta={'center'} order={2} mb="lg">
+                Frontend
+              </Title>
+              <Group>{renderSkills(frontendSkills)}</Group>
+            </Paper>
+          </GridCol>
 
-        {/* Backend Section */}
-        <GridCol span={6}>
-          <Paper
-            className={classes.card}
-            shadow="md"
-            radius="xl"
-            p="xl"
-            withBorder
-            style={{ width: '90%', margin: '0 auto' }} // Adjusted width
-          >
-            <Title className={classes.cardTitle} ta={'center'} order={2} mb="lg">
-              Backend
-            </Title>
-            <Group>{renderSkills(backendSkills)}</Group>
-          </Paper>
-        </GridCol>
+          {/* Backend Section */}
+          <GridCol span={{ base: 12, sm: 6 }}>
+            <Paper
+              className={classes.card}
+              shadow="md"
+              radius="xl"
+              p="xl"
+              withBorder
+              style={{
+                width: '100%',
+                margin: '0 auto',
+                maxWidth: '500px',
+              }}
+            >
+              <Title className={classes.cardTitle} ta={'center'} order={2} mb="lg">
+                Backend
+              </Title>
+              <Group>{renderSkills(backendSkills)}</Group>
+            </Paper>
+          </GridCol>
 
-        {/* Others Section */}
-        <GridCol
-          span={12}
-          style={{
-            display: 'flex',
-            justifyContent: 'center',
-            alignItems: 'center',
-          }}
-        >
-          <Paper
-            className={classes.card}
-            shadow="md"
-            radius="xl"
-            p="xl"
-            withBorder
+          {/* Others Section */}
+          <GridCol
+            span={12}
             style={{
-              width: '40%', // Smaller width for Others section
-              textAlign: 'center',
+              display: 'flex',
+              justifyContent: 'center',
+              alignItems: 'center',
             }}
           >
-            <Title className={classes.cardTitle} ta={'center'} order={2} mb="lg">
-              Others
-            </Title>
-            <Group>{renderSkills(otherSkills)}</Group>
-          </Paper>
-        </GridCol>
-      </Grid>
+            <Paper
+              className={classes.card}
+              shadow="md"
+              radius="xl"
+              p="xl"
+              withBorder
+              style={{
+                width: '100%',
+                maxWidth: '400px',
+                textAlign: 'center',
+                margin: '0 auto',
+              }}
+            >
+              <Title className={classes.cardTitle} ta={'center'} order={2} mb="lg">
+                Others
+              </Title>
+              <Group>{renderSkills(otherSkills)}</Group>
+            </Paper>
+          </GridCol>
+        </Grid>
+      </div>
     </Container>
   );
 }

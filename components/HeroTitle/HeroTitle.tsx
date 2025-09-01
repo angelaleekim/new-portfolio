@@ -1,9 +1,11 @@
 import { Button, Container, Group, Image, List, rem, Text, ThemeIcon, Title } from '@mantine/core';
+import { ColorSchemeToggle } from '../ColorSchemeToggle/ColorSchemeToggle';
 import classes from './HeroTitle.module.css';
 
 export function HeroTitle() {
   return (
-    <Container size="md">
+    <Container className={classes.container} size="md">
+      <ColorSchemeToggle />
       <div className={classes.inner}>
         <div className={classes.content}>
           <Text
@@ -14,7 +16,7 @@ export function HeroTitle() {
             Angela Kim
           </Text>
           <Text className={classes.description} c="dimmed" mt="md">
-            a fullstack software developer passionate about helping others live more efficient and
+            A fullstack software developer passionate about helping others live more efficient and
             enjoyable lives.
           </Text>
           <Group mt={30}>

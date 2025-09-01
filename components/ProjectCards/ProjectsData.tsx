@@ -1,5 +1,5 @@
 import classPass from '../../app/images/classPass.png';
-import disney from '../../app/images/disney.jpg';
+import disney from '../../app/images/disney.png';
 import uncluttered from '../../app/images/uncluttered.png';
 
 const projects = [

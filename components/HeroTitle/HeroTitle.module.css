@@ -1,19 +1,47 @@
 @import url('https://fonts.googleapis.com/css2?family=Outfit:wght@400;500;700;900&display=swap');
+.container {
+  margin-top: 5em;
+  padding-left: 2rem;
+  padding-right: 2rem;
+}
+
+@media (max-width: 600px) {
+  .container {
+    margin-top: 2em;
+    padding-left: 1rem;
+    padding-right: 1rem;
+  }
+}
 
 .inner {
   display: flex;
-  justify-content: space-between;
-  padding-top: calc(var(--mantine-spacing-xl) * 10);
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  min-height: 60vh;
+  padding-top: calc(var(--mantine-spacing-xl) * 9);
   padding-bottom: calc(var(--mantine-spacing-xl) * 4);
 }
 
-.content {
-  max-width: rem(700px);
-  margin-right: calc(var(--mantine-spacing-xl) * 3);
+@media (max-width: 900px) {
+  .inner {
+    padding-top: calc(var(--mantine-spacing-xl) * 4);
+    padding-bottom: calc(var(--mantine-spacing-xl) * 2);
+  }
+}
 
+.content {
+  max-width: 700px;
+  margin: 0 auto;
+  text-align: left;
   @media (max-width: --mantine-breakpoint-md) {
     max-width: 100%;
     margin-right: 0;
+  }
+  @media (max-width: 600px) {
+    padding-left: 1.5rem;
+    padding-right: 1.5rem;
+    text-align: center;
   }
 }
 
@@ -21,14 +49,25 @@
   font-size: rem(24px);
 }
 
+@media (max-width: 900px) {
+  .description {
+    font-size: rem(20px);
+  }
+}
+
 .title {
   font-family: 'Outfit', sans-serif;
   font-weight: 700;
   font-size: rem(52px);
   line-height: 1.2;
-
   @media (max-width: --mantine-breakpoint-xs) {
-    font-size: rem(28px);
+    font-size: rem(38px);
+  }
+  @media (max-width: 900px) {
+    font-size: rem(46px);
+  }
+  @media (max-width: 600px) {
+    font-size: rem(32px);
   }
 }
 
@@ -41,7 +80,6 @@
 .image {
   width: rem(376px);
   height: rem(356px);
-
   @media (max-width: --mantine-breakpoint-md) {
     display: none;
   }
@@ -52,4 +90,10 @@
   background-color: var(--mantine-color-blue-light);
   border-radius: var(--mantine-radius-sm);
   padding: rem(4px) rem(12px);
+}
+
+@media (max-width: --mantine-breakpoint-md) {
+  .highlight {
+    display: none;
+  }
 }

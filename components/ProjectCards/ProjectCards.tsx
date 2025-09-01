@@ -2,6 +2,7 @@ import NextImage from 'next/image';
 import {
   Center,
   Container,
+  Flex,
   Image,
   Paper,
   Text,
@@ -14,28 +15,43 @@ import classes from './ProjectCards.module.css';
 
 export default function ProjectCards() {
   const TimelineItems = projects.map((project) => (
-    <TimelineItem title={project.date} fz={'h3'}>
-      <Paper mt={'lg'} withBorder w={'50%'} fz={'h4'} shadow={'sm'} radius={'xl'} p={'xl'}>
-        <Image
-          radius={'lg'}
-          h={190}
-          w="auto"
-          fit="contain"
-          component={NextImage}
-          src={project.image}
-          alt="My image"
-        ></Image>
-        <Text mt={'sm'} className={classes.timelineText} fz={'h3'}>
-          {project.title}
-        </Text>
-        <Text c="dimmed" fz={'h4'}>
-          {project.company}
-        </Text>
-        <Text c="dimmed" fz={'h5'}>
-          {project.date}
-        </Text>
-        <Text mt={'md'}>{project.description}</Text>
-      </Paper>
+    <TimelineItem title={project.date} fz={'h3'} key={`${project.title}-${project.company}`}>
+      <Flex
+        direction={{ base: 'column', sm: 'row' }}
+        gap={{ base: 'sm', sm: 'xl' }}
+        align={{ base: 'stretch', sm: 'center' }}
+      >
+        <Paper
+          mt={'lg'}
+          withBorder
+          w={{ base: '100%', sm: '50%' }}
+          fz={'h4'}
+          shadow={'sm'}
+          radius={'xl'}
+          p={'xl'}
+          className={classes.card}
+        >
+          <Image
+            radius={'lg'}
+            h={190}
+            w="auto"
+            fit="contain"
+            component={NextImage}
+            src={project.image}
+            alt="My image"
+          />
+          <Text mt={'sm'} className={classes.timelineText} fz={'h3'}>
+            {project.title}
+          </Text>
+          <Text c="dimmed" fz={'h4'}>
+            {project.company}
+          </Text>
+          <Text c="dimmed" fz={'h5'}>
+            {project.date}
+          </Text>
+          <Text mt={'md'}>{project.description}</Text>
+        </Paper>
+      </Flex>
     </TimelineItem>
   ));
 
@@ -46,8 +62,7 @@ export default function ProjectCards() {
           Work Experience & Projects
         </Title>
         <Timeline
-          ml={'50'}
-          align={'left'}
+          align="left" // Align prop only accepts "left" or "right"
           active={projects.length}
           color={'purple'}
           mt={'4rem'}
@@ -55,7 +70,7 @@ export default function ProjectCards() {
           bulletSize={25}
         >
           {TimelineItems}
-          <TimelineItem></TimelineItem>
+          <TimelineItem />
         </Timeline>
       </div>
     </Container>

@@ -2,8 +2,20 @@
 @import url('https://fonts.googleapis.com/css2?family=Outfit:wght@400;500;700;900&display=swap');
 
 .inner {
-  padding-top: calc(var(--mantine-spacing-xl) * 8);
-  padding-bottom: calc(var(--mantine-spacing-xl) * 8);
+  padding-top: calc(var(--mantine-spacing-xl) * 11);
+  padding-bottom: calc(var(--mantine-spacing-xl) * 4);
+}
+
+@media (max-width: 900px) {
+  .inner {
+    padding-top: calc(var(--mantine-spacing-xl) * 7);
+  }
+}
+
+@media (max-width: 600px) {
+  .inner {
+    padding-top: calc(var(--mantine-spacing-xl) * 4);
+  }
 }
 
 .title {
@@ -11,9 +23,23 @@
   font-weight: 400;
   font-family: 'Outfit', sans-serif;
   margin-bottom: --mantine-breakpoint-md;
+}
 
-  @media (max-width: --mantine-breakpoint-sm) {
-    font-size: 24px;
+@media (max-width: 900px) {
+  .title {
+    font-size: 36px;
+  }
+}
+
+@media (max-width: 600px) {
+  .title {
+    font-size: 28px;
+  }
+}
+
+@media (max-width: 400px) {
+  .title {
+    font-size: 22px;
   }
 }
 
