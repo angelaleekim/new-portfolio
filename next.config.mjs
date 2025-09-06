@@ -4,7 +4,8 @@ const withBundleAnalyzer = bundleAnalyzer({
   enabled: process.env.ANALYZE === 'true',
 });
 
-export default withBundleAnalyzer({
+/** @type {import('next').NextConfig} */
+const nextConfig = {
   reactStrictMode: false,
   eslint: {
     ignoreDuringBuilds: true,
@@ -12,4 +13,10 @@ export default withBundleAnalyzer({
   experimental: {
     optimizePackageImports: ['@mantine/core', '@mantine/hooks'],
   },
-});
+  output: 'export',
+  images: {
+    unoptimized: true,
+  },
+};
+
+export default withBundleAnalyzer(nextConfig);
