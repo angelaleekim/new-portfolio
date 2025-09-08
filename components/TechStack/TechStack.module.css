@@ -2,7 +2,7 @@
 @import url('https://fonts.googleapis.com/css2?family=Outfit:wght@400;500;700;900&display=swap');
 
 .inner {
-  padding-top: calc(var(--mantine-spacing-xl) * 11);
+  padding-top: calc(var(--mantine-spacing-xl) * 5);
   padding-bottom: calc(var(--mantine-spacing-xl) * 4);
 }
 

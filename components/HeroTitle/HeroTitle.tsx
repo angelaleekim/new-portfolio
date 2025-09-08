@@ -15,18 +15,11 @@ export function HeroTitle() {
           >
             Angela Kim
           </Text>
-          <Text className={classes.description} c="dimmed" mt="md">
-            A fullstack software developer passionate about helping others live more efficient and
-            enjoyable lives.
+          <Text className={classes.description} mt="md">
+            Full-stack software developer with a frontend focus, passionate about creating clean
+            user interfaces and efficient backend systems.
           </Text>
-          <Group mt={30}>
-            {/* <Button variant={'filled'} color={'pink.5'}>
-              View My Work
-            </Button>
-            <Button radius="xl" size="md" className={classes.control}>
-              About Me
-            </Button> */}
-          </Group>
+          <Group mt={30}></Group>
         </div>
       </div>
     </Container>
